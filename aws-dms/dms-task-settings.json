@@ -1,0 +1,51 @@
+{
+  "ReplicationTaskIdentifier": "sqlserver-to-rds-healthcare",
+  "MigrationType": "full-load-and-cdc",
+  "TableMappings": {
+    "rules": [
+      {
+        "rule-type": "selection",
+        "rule-id": "1",
+        "rule-name": "includeAll",
+        "object-locator": {
+          "schema-name": "%",
+          "table-name": "%"
+        },
+        "rule-action": "include"
+      }
+    ]
+  },
+  "ReplicationTaskSettings": {
+    "TargetMetadata": {
+      "TargetSchema": "",
+      "SupportLobs": true,
+      "FullLobMode": false,
+      "LobChunkSize": 64,
+      "LimitedSizeLobMode": true,
+      "LobMaxSize": 32,
+      "BatchApplyEnabled": true
+    },
+    "FullLoadSettings": {
+      "TargetTablePrepMode": "DO_NOTHING",
+      "StopTaskCachedChangesApplied": false,
+      "StopTaskCachedChangesNotApplied": false,
+      "MaxFullLoadSubTasks": 8
+    },
+    "Logging": {
+      "EnableLogging": true
+    },
+    "ControlTablesSettings": {
+      "ControlSchema": ""
+    },
+    "StreamBufferSettings": {
+      "StreamBufferCount": 3,
+      "StreamBufferSizeInMB": 8,
+      "CtrlStreamBufferSizeInMB": 5
+    },
+    "ChangeProcessingTuning": {
+      "BatchApplyPreserveTransaction": true,
+      "BatchApplyTimeoutMin": 1,
+      "BatchApplyMemoryLimit": 500
+    }
+  }
+}
