@@ -67,7 +67,7 @@ healthcare-data-migration-api/
 
 ### 1️⃣ Clone Repo
 ```bash
-git clone https://github.com/your-username/healthcare-data-migration-api.git
+git clone https://github.com/hq969/healthcare-data-migration-api.git
 cd healthcare-data-migration-api
 ````
 
