@@ -1,4 +1,3 @@
--- Patients
 CREATE TABLE IF NOT EXISTS patients (
   id BIGSERIAL PRIMARY KEY,
   first_name VARCHAR(150) NOT NULL,
