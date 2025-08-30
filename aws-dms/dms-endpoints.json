@@ -1,0 +1,24 @@
+{
+  "sourceEndpoint": {
+    "EndpointIdentifier": "legacy-sqlserver-src",
+    "EngineName": "sqlserver",
+    "ServerName": "LEGACY_SQLSERVER_HOSTNAME_OR_IP",
+    "Port": 1433,
+    "DatabaseName": "LegacyHospitalDB",
+    "Username": "sql_user",
+    "Password": "REPLACE_WITH_PASSWORD",
+    "ExtraConnectionAttributes": "",
+    "SslMode": "none"
+  },
+  "targetEndpoint": {
+    "EndpointIdentifier": "rds-postgres-target",
+    "EngineName": "postgres",
+    "ServerName": "YOUR_RDS_ENDPOINT",
+    "Port": 5432,
+    "DatabaseName": "healthcare",
+    "Username": "healthcare",
+    "Password": "REPLACE_WITH_PASSWORD",
+    "ExtraConnectionAttributes": "",
+    "SslMode": "require"
+  }
+}
