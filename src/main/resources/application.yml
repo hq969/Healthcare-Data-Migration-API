@@ -1,17 +1,61 @@
 spring:
+  profiles:
+    active: dev
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+
   datasource:
     url: jdbc:postgresql://localhost:5432/healthcare
     username: healthcare
     password: healthcare
     driver-class-name: org.postgresql.Driver
+
   jpa:
     hibernate:
       ddl-auto: update
     properties:
       hibernate:
         format_sql: true
-  profiles:
-    active: dev
+    show-sql: true
 
 server:
   port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+# AWS / DynamoDB
+aws:
+  region: ${AWS_REGION:us-east-1}
+dynamodb:
+  audit-table: ${DDB_AUDIT_TABLE:AuditLogs}
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: mysql
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/healthcare?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: healthcare
+    password: healthcare
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
